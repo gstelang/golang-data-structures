@@ -7,6 +7,13 @@
 * LinkedList
 * BST
 
-# Some fun ones
+# Probabilistic data structures
 * Hyperloglog
-* Bloom filter
+* Count-min Sketch
+* Filter
+  * Bloom filter
+  * Cuckoo filter
+  * Quotient filter
+* T-Digest
+* Lossy counting
+* Skip list
