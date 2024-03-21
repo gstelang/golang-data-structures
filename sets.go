@@ -2,32 +2,32 @@ package main
 
 import "fmt"
 
-type set struct {
-	items map[string]bool
+type Set[T any] struct {
+	items map[any]bool
 }
 
-func (s *set) add(item string) {
+func (s *Set[T]) add(item T) {
 	if s.items == nil {
-		s.items = make(map[string]bool)
+		s.items = make(map[any]bool)
 	}
 	s.items[item] = true
 }
 
-func (s *set) remove(item string) {
+func (s *Set[T]) remove(item T) {
 	delete(s.items, item)
 }
 
-func (s set) size() int {
+func (s *Set[T]) size() int {
 	return len(s.items)
 }
 
-func (s set) has(item string) bool {
+func (s *Set[T]) has(item T) bool {
 	_, exists := s.items[item]
 	return exists
 }
 
 func main() {
-	seq := set{}
+	seq := Set[string]{}
 	seq.add("abc")
 	seq.add("xyz")
 	fmt.Println("set size", seq.size())
@@ -36,4 +36,14 @@ func main() {
 	seq.remove("abc")
 	fmt.Println("set has abc? ", seq.has("abc"))
 	fmt.Println("set size", seq.size())
+
+	seqInts := Set[int]{}
+	seqInts.add(1)
+	seqInts.add(2)
+	fmt.Println("set size", seqInts.size())
+	fmt.Println("set has 1?", seqInts.has(1))
+	fmt.Println("Removing 1")
+	seqInts.remove(1)
+	fmt.Println("set has 1? ", seqInts.has(1))
+	fmt.Println("set size", seqInts.size())
 }
