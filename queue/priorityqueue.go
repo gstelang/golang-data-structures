@@ -1,7 +1,6 @@
-package main
+package queue
 
 import (
-	"container/heap"
 	"fmt"
 
 	"golang.org/x/exp/constraints"
@@ -76,40 +75,40 @@ func (h *PriorityQueue[T]) Pop() interface{} {
 	return lastElem
 }
 
-func main() {
-	pq := &PriorityQueue[int]{
-		heapType: "MIN",
-	}
-	heap.Init(pq)
-	heap.Push(pq, 9)
-	heap.Push(pq, 20)
-	heap.Push(pq, 8)
-	heap.Push(pq, 3)
-	heap.Push(pq, 100)
-	heap.Push(pq, 99)
-	heap.Push(pq, 40)
+// func main() {
+// 	pq := &PriorityQueue[int]{
+// 		heapType: "MIN",
+// 	}
+// 	heap.Init(pq)
+// 	heap.Push(pq, 9)
+// 	heap.Push(pq, 20)
+// 	heap.Push(pq, 8)
+// 	heap.Push(pq, 3)
+// 	heap.Push(pq, 100)
+// 	heap.Push(pq, 99)
+// 	heap.Push(pq, 40)
 
-	fmt.Println(pq)
-	for pq.Len() > 0 {
-		x := heap.Pop(pq)
-		fmt.Println(x)
-	}
+// 	fmt.Println(pq)
+// 	for pq.Len() > 0 {
+// 		x := heap.Pop(pq)
+// 		fmt.Println(x)
+// 	}
 
-	pqMax := &PriorityQueue[int]{
-		heapType: "MAX",
-	}
-	heap.Init(pqMax)
-	heap.Push(pqMax, 9)
-	heap.Push(pqMax, 20)
-	heap.Push(pqMax, 8)
-	heap.Push(pqMax, 3)
-	heap.Push(pqMax, 100)
-	heap.Push(pqMax, 99)
-	heap.Push(pqMax, 40)
+// 	pqMax := &PriorityQueue[int]{
+// 		heapType: "MAX",
+// 	}
+// 	heap.Init(pqMax)
+// 	heap.Push(pqMax, 9)
+// 	heap.Push(pqMax, 20)
+// 	heap.Push(pqMax, 8)
+// 	heap.Push(pqMax, 3)
+// 	heap.Push(pqMax, 100)
+// 	heap.Push(pqMax, 99)
+// 	heap.Push(pqMax, 40)
 
-	fmt.Println(pqMax)
-	for pqMax.Len() > 0 {
-		x := heap.Pop(pqMax)
-		fmt.Println(x)
-	}
-}
+// 	fmt.Println(pqMax)
+// 	for pqMax.Len() > 0 {
+// 		x := heap.Pop(pqMax)
+// 		fmt.Println(x)
+// 	}
+// }
