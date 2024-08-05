@@ -1,6 +1,8 @@
 # Hyperloglog
-* Reference: https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf
-
+* References:
+   * https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf
+   * https://www.youtube.com/watch?v=MOkm__T2jUg
+  
 # Problem
 * How many unique visitors in a day
 * Solution: use HashMap. 
