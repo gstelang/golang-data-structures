@@ -26,7 +26,7 @@ unique entries = 2^4 = 16
 but here with this dataset, we got only 5.
 ```
 
-# Solution to above (using bucket)
+# Solution to above (using bucket) => LogLog algorithm
 
 1. Bucket by leading 2 zeroes for the above example
 ```
@@ -44,3 +44,11 @@ mean = 2 + 0 + 0 + 2 / 4 = 1
 // 0.79 was the constant after experimentation as per the paper
 = 0.79 * 4 * 2^mean = 6.32
 ```
+
+# Closer to the target use harmonic mean => hyperloglog algorithm.
+
+```
+harmonic mean = 1/2^2 + 1/2^0 + 1/2^0 + 1/2^2
+New formula = 0.79 * 4 * 4 / harmonic mean = 5.056
+```
+
