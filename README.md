@@ -7,6 +7,10 @@
 6. LinkedList
 7. BST
 
+# Advanced use cases
+1. Set associative array
+2. Ring buffer
+
 # Probabilistic data structures
 1. Hyperloglog
 2. Count-min Sketch
