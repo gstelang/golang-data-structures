@@ -29,18 +29,22 @@ func NewRingBuffer(capacity int) *RingBuffer {
 
 func (rb *RingBuffer) GetRecentEntries() []int {
 
-	index := rb.totalEntries % rb.capacity
+	size := min(rb.totalEntries, rb.capacity)
+	result := make([]int, size)
 
-	result := make([]int, rb.capacity)
+	index := rb.totalEntries % rb.capacity
 	resultIndex := 0
-	for i := index; i < rb.capacity; i++ {
-		result[resultIndex] = rb.logs[i]
-		resultIndex++
-	}
 
 	for j := 0; j < index; j++ {
 		result[resultIndex] = rb.logs[j]
 		resultIndex++
+	}
+
+	if rb.totalEntries >= rb.capacity {
+		for i := index; i < rb.capacity; i++ {
+			result[resultIndex] = rb.logs[i]
+			resultIndex++
+		}
 	}
 
 	return result
